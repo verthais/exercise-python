@@ -6,6 +6,7 @@ class SubsystemA:
 	def method2(self):
 		print('SubsystemA method2 ...')
 
+
 class SubsystemB:
 	
 	def method1(self):
@@ -13,6 +14,7 @@ class SubsystemB:
 		
 	def method2(self):
 		print('SubsystemB method2 ...')
+
 
 class Facade:
 
@@ -27,9 +29,11 @@ class Facade:
 		self._subsystem_B.method1()
 		self._subsystem_B.method2()
 
+
 def main():
 	facade = Facade()
 	facade.method()
+
 
 if __name__ == "__main__":
 	main()

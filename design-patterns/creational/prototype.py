@@ -27,11 +27,15 @@ class Car:
         
     def __str__(self):
         return '{} | {} | {}'.format(self.name, self.color, self.options)
-        
-c = Car()
-prototype = Prototype()
-prototype.register_object('skylark',c)
 
-c1 = prototype.clone('skylark')
+def main():    
+    c = Car()
+    prototype = Prototype()
+    prototype.register_object('skylark',c)
 
-print(c1)
+    c1 = prototype.clone('skylark')
+
+    print(c1)
+
+if __name__ == '__main__':
+	main()

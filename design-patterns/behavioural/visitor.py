@@ -32,18 +32,22 @@ class Electrician(Visitor): #Inherits from the parent class, Visitor
 	def visit(self, house):
 		house.work_on_electricity(self) #Note that the visitor now has a reference to the house object
 
-#Create an HVAC specialist
-hv = HvacSpecialist()
-#Create an electrician
-e = Electrician()
 
-#Create a house
-home = House()
+def main():
+	#Create an HVAC specialist
+	hv = HvacSpecialist()
+	#Create an electrician
+	e = Electrician()
 
-#Let the house accept the HVAC specialist and work on the house by invoking the visit() method
-home.accept(hv)
+	#Create a house
+	home = House()
 
-#Let the house accept the electrician and work on the house by invoking the visit() method
-home.accept(e)
+	#Let the house accept the HVAC specialist and work on the house by invoking the visit() method
+	home.accept(hv)
+
+	#Let the house accept the electrician and work on the house by invoking the visit() method
+	home.accept(e)
 
 
+if __name__ == '__main__':
+	main()

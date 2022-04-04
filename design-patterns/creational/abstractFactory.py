@@ -40,12 +40,16 @@ class PetStore:
 		print("Its food is '{}'!".format(pet_food))
 
 
-#Create a Concrete Factory
-factory = DogFactory()
+def main():
+	#Create a Concrete Factory
+	factory = DogFactory()
 
-#Create a pet store housing our Abstract Factory
-shop = PetStore(factory)
+	#Create a pet store housing our Abstract Factory
+	shop = PetStore(factory)
 
-#Invoke the utility method to show the details of our pet
-shop.show_pet()
+	#Invoke the utility method to show the details of our pet
+	shop.show_pet()
 
+
+if __name__ == '__main__':
+	main()

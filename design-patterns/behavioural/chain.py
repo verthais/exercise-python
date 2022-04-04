@@ -1,3 +1,6 @@
+from abc import abstractmethod
+
+
 class Handler: #Abstract handler
 	"""Abstract Handler"""
 	def __init__(self, successor):
@@ -10,8 +13,10 @@ class Handler: #Abstract handler
 			if not handled:
 				self._successor.handle(request)	
 
+	@abstractmethod
 	def _handle(self, request):
 		raise NotImplementedError('Must provide implementation in subclass!')
+
 
 class ConcreteHandler1(Handler): # Inherits from the abstract handler
 	"""Concrete handler 1"""
@@ -19,6 +24,7 @@ class ConcreteHandler1(Handler): # Inherits from the abstract handler
 		if 0 < request <= 10: # Provide a condition for handling
 			print("Request {} handled in handler 1".format(request))
 			return True # Indicates that the request has been handled
+
 
 class DefaultHandler(Handler): # Inherits from the abstract handler
 	"""Default handler"""
@@ -29,6 +35,7 @@ class DefaultHandler(Handler): # Inherits from the abstract handler
 		print("End of chain, no handler for {}".format(request))
 		return True # Indicates that the request has been handled
 
+
 class Client: # Using handlers
 	def __init__(self):
 		self.handler = ConcreteHandler1(DefaultHandler(None)) # Create handlers and use them in a sequence you want
@@ -38,13 +45,17 @@ class Client: # Using handlers
 		for request in requests:
 				self.handler.handle(request)
 
-# Create a client
-c = Client()
 
-# Create requests
-requests = [2, 5, 30]
+def main():
+	# Create a client
+	c = Client()
 
-# Send the requests
-c.delegate(requests)
+	# Create requests
+	requests = [2, 5, 30]
+
+	# Send the requests
+	c.delegate(requests)
 
 
+if __name__ == "__main__":
+	main()

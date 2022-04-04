@@ -29,21 +29,25 @@ class Adapter:
 	def __getattr__(self, attr):
 		"""Simply return the rest of attributes!"""
 		return getattr(self._object, attr)
-		
-#List to store speaker objects
-objects = []
-
-#Create a Korean object
-korean = Korean()
-
-#Create a British object
-british =British()
-
-#Append the objects to the objects list
-objects.append(Adapter(korean, speak=korean.speak_korean))
-objects.append(Adapter(british, speak=british.speak_english))
 
 
-for obj in objects:
-	print("{} says '{}'\n".format(obj.name, obj.speak()))
+def main():
+	#List to store speaker objects
+	objects = []
 
+	#Create a Korean object
+	korean = Korean()
+
+	#Create a British object
+	british =British()
+
+	#Append the objects to the objects list
+	objects.append(Adapter(korean, speak=korean.speak_korean))
+	objects.append(Adapter(british, speak=british.speak_english))
+
+	for obj in objects:
+		print("{} says '{}'\n".format(obj.name, obj.speak()))
+
+
+if __name__ == '__main__':
+	main()

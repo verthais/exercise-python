@@ -1,5 +1,5 @@
-import sys
 from abc import abstractmethod
+
 
 class Colleague(object):
 	def __init__(self, mediator, id):
@@ -16,6 +16,7 @@ class Colleague(object):
 	@abstractmethod
 	def receive(self, msg):
 		pass
+
 
 class ConcreteColleague(Colleague):
 	def __init__(self, mediator, id):
@@ -37,6 +38,7 @@ class Mediator:
 	@abstractmethod
 	def distribute(self, sender, msg):
 		pass
+
 
 class ConcreteMediator(Mediator):
 	def __init__(self):
@@ -64,6 +66,7 @@ def main():
 	mediator.add(c3)
 
 	c1.send("Good Morning!")
+
 
 if __name__ == "__main__":
 	main()

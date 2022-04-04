@@ -1,5 +1,4 @@
 import sys
-
 from abc import ABC, abstractmethod
 
 class AbstractClass(ABC):
@@ -34,6 +33,7 @@ class AbstractClass(ABC):
 	def do_this_or(self):
 		print('You can overide me but you do not have to')
 
+
 class ConcreteClassA(AbstractClass):
 #This class inherits from the Abstract class featuring the template method. 
 
@@ -42,6 +42,7 @@ class ConcreteClassA(AbstractClass):
 
 	def do_step_2(self):
 		print('Doing step 2 for ConcreteClassA ...')
+
 
 class ConcreteClassB(AbstractClass):
 #This class inherits from the Abstract class featuring the template method.

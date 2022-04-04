@@ -1,7 +1,7 @@
 import pickle
 
-class Originator:
 
+class Originator:
 	def __init__(self):
 		self._state = None
 
@@ -12,6 +12,7 @@ class Originator:
 		previous_state = pickle.loads(memento)
 		vars(self).clear
 		vars(self).update(previous_state)
+
 
 def main():
 	originator = Originator()
@@ -27,6 +28,7 @@ def main():
 	originator.set_memento(memento)
 
 	print(vars(originator))
+
 
 if __name__ == "__main__":
 	main()

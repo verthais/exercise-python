@@ -1,10 +1,12 @@
 from abc import abstractmethod
 
+
 class AbstractExpression():
 
 	@abstractmethod
 	def interpret(self):
 		pass
+
 
 class NonterminalExpression(AbstractExpression):
 
@@ -15,15 +17,17 @@ class NonterminalExpression(AbstractExpression):
 		print("Non-terminal expression being interpreted ...")
 		self._expression.interpret()
 
+
 class TerminalExpression(AbstractExpression):
 
 	def interpret(self):
 		print("Terminal expression being interpreted ...")
 
-def main():
 
+def main():
 	ast = NonterminalExpression(NonterminalExpression(TerminalExpression()))
 	ast.interpret()
+
 
 if __name__ == "__main__":
 	main()

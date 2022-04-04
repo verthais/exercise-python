@@ -23,12 +23,17 @@ def hello_world():
 
 	return "Hello, World!"
 
-#Check the result of decorating
-print(hello_world())
 
-#Check if the function name is still the same name of the function being decorated
-print(hello_world.__name__)
+def main():
+	#Check the result of decorating
+	print(hello_world())
 
-#Check if the docstring is still the same as that of the function being decorated
-print(hello_world.__doc__)
+	#Check if the function name is still the same name of the function being decorated
+	print(hello_world.__name__)
 
+	#Check if the docstring is still the same as that of the function being decorated
+	print(hello_world.__doc__)
+
+
+if __name__ == '__main__':
+	main()

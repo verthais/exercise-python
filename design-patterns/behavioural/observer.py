@@ -19,8 +19,8 @@ class Subject(object): #Represents what is being 'observed'
 			if modifier != observer: # Don't notify the observer who is actually updating the temperature 
 				observer.update(self) # Alert the observers!
 
-class Core(Subject): #Inherits from the Subject class
 
+class Core(Subject): #Inherits from the Subject class
 	def __init__(self, name=""):
 		Subject.__init__(self)
 		self._name = name #Set the name of the core
@@ -35,24 +35,29 @@ class Core(Subject): #Inherits from the Subject class
 		self._temp = temp
 		self.notify() #Notify the observers whenever somebody changes the core temperature
 
-class TempViewer:
 
+class TempViewer:
 	def update(self, subject): #Alert method that is invoked when the notify() method in a concrete subject is invoked
 		print("Temperature Viewer: {} has Temperature {}".format(subject._name, subject._temp))
 
-#Let's create our subjects
-c1 = Core("Core 1")
-c2 = Core("Core 2")
 
-#Let's create our observers
-v1 = TempViewer()
-v2 = TempViewer()
+def main():
+	#Let's create our subjects
+	c1 = Core("Core 1")
+	c2 = Core("Core 2")
 
-#Let's attach our observers to the first core
-c1.attach(v1)
-c1.attach(v2)
+	#Let's create our observers
+	v1 = TempViewer()
+	v2 = TempViewer()
 
-#Let's change the temperature of our first core
-c1.temp = 80
-c1.temp = 90
+	#Let's attach our observers to the first core
+	c1.attach(v1)
+	c1.attach(v2)
 
+	#Let's change the temperature of our first core
+	c1.temp = 80
+	c1.temp = 90
+
+
+if __name__ == '__main__':
+	main()

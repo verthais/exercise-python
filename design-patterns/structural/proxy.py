@@ -8,6 +8,7 @@ class Producer:
 	def meet(self):
 		print("Producer has time to meet you now!")
 
+
 class Proxy:
 	""""Define the 'relatively less resource-intensive' proxy to instantiate as a middleman"""
 	def __init__(self):  
@@ -31,15 +32,19 @@ class Proxy:
 			time.sleep(2)
 			print("Producer is busy!")
 
-#Instantiate a Proxy
-p = Proxy()
+def main():
+	#Instantiate a Proxy
+	p = Proxy()
 
-#Make the proxy: Artist produce until Producer is available
-p.produce()
+	#Make the proxy: Artist produce until Producer is available
+	p.produce()
 
-#Change the state to 'occupied'
-p.occupied = 'Yes'
+	#Change the state to 'occupied'
+	p.occupied = 'Yes'
 
-#Make the Producer produce
-p.produce()
+	#Make the Producer produce
+	p.produce()
 
+
+if __name__ == '__main__':
+	main()

@@ -14,15 +14,18 @@ class AtmState():
 	def __str__(self):
 		return self.name
 
+
 class Off(AtmState):
 
 	name = "off"
 	allowed = ['on']
 
+
 class On(AtmState):
 
 	name = "on"
 	allowed = ['off']
+
 
 class ATM():
 	
@@ -32,12 +35,14 @@ class ATM():
 	def setState(self, state):
 		self.current.goNext(state)
 
+
 def main():
 	atm = ATM()
 
 	atm.setState(On)
 	atm.setState(Off)
 	atm.setState(Off)
+
 
 if __name__ == "__main__":
 	main()

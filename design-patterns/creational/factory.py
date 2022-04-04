@@ -1,5 +1,4 @@
 class Dog:
-
 	"""A simple dog class"""
 
 	def __init__(self, name):
@@ -8,8 +7,8 @@ class Dog:
 	def speak(self):
 		return "Woof!"
 
-class Cat:
 
+class Cat:
 	"""A simple dog class"""
 
 	def __init__(self, name):
@@ -19,23 +18,20 @@ class Cat:
 		return "Meow!"
 
 def get_pet(pet="dog"):
-
 	"""The factory method"""
 
 	pets = dict(dog=Dog("Hope"), cat=Cat("Peace"))
 
 	return pets[pet]
 
-d = get_pet("dog")
 
-print(d.speak())
+def main():
+	d = get_pet("dog")
+	print(d.speak())
 
-c = get_pet("cat")
-
-print(c.speak())
-
-
+	c = get_pet("cat")
+	print(c.speak())
 
 
-
-
+if __name__ == '__main__':
+	main()
