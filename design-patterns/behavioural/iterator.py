@@ -1,3 +1,20 @@
+class Zoom:
+	def __iter__(self):
+		return ZoomIterator()
+
+
+class ZoomIterator:
+	def __init__(self):
+		self.index = 0
+
+	def __next__(self):
+		if self.index > 22:
+			raise StopIteration
+		
+		self.index += 1
+		return self.index
+
+
 def count_to(count):
 	"""Our iterator implementation"""
 	
@@ -16,10 +33,18 @@ def count_to(count):
 		#Returns a 'generator' containing numbers in German
 		yield number 
 
-#Let's test the generator returned by our iterator
-for num in count_to(3):
-	print("{}".format(num))
+def main():
+	#Let's test the generator returned by our iterator
+	for num in count_to(3):
+		print("{}".format(num))
 
-for num in count_to(4):
-	print("{}".format(num))
+	for num in count_to(4):
+		print("{}".format(num))
 	
+	zoom = Zoom()
+
+	for z in zoom:
+		print(z)
+
+if __name__ == '__main__':
+	main()
